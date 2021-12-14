@@ -6,11 +6,12 @@ If(0 -eq $Regval ) {Write-Host "El valor ya es $Regval"}
 
 Else{
 
-Set-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive\" -Name "DisableFileSyncNGSC" -Value "1"
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive\" -Name "DisableFileSyncNGSC" -Value "0"
+$Regval = Get-ItemPropertyValue -Path "HKLM:\SOFTWARE\Policies\Microsoft\Windows\OneDrive\" -Name "DisableFileSyncNGSC"
+Write-Host "El valor ha sido cambiado a $Regval"
 
 }
 
-Write-Host "$Regval"
 
 }
 
